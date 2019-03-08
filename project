@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<head>
+<script src="/assets/jquery.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background-color: #2224;
+}
+    ul {
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    li {
+      display: inline;
+      padding: 0px 10px 0px 10px;
+    }
+div {
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: 'satisfy', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: #ffff;
+  margin: 60px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: #ffff;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: rgba(255,255,255,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.first{
+  background-image: url("https://blog.kingarthurflour.com/wp-content/uploads/2017/11/How-to-keep-pumpkin-pie-from-cracking-9A.jpg");
+}
+.second{
+  background-image: url("https://images-gmi-pmc.edge-generalmills.com/817d708a-33e6-46f7-b985-0360b6c55cf4.jpg");
+}
+.dessert{
+  background-image: url(https://images-gmi-pmc.edge-generalmills.com/817d708a-33e6-46f7-b985-0360b6c55cf4.jpg");
+}
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {ppetizers<
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+ <ul>
+      <li><button onclick=appetizers()>appetizers</button></li>
+      <li><button onclick=desserts()>desserts</button></li>
+      <li><button onclick=entrees()>entrees</button></li>
+    </ul>
+<h1>Dianna's Resturant.</h1>
+<h2>mixed flavor Dominican and Italian baby!</h2>
+
+<div id="food"> </div>
+
+<script>
+appetizersImages = [  
+             'url(https://assets.marthastewart.com/styles/wmax-520-highdpi/d13/mh_1028_bread/mh_1028_bread_horiz.jpg?itok=vbi8Az6P)',
+               'url(http://assets.kraftfoods.com/recipe_images/opendeploy/206713-0d1d34492c777800b14af270affb1b20e1a53c5f_642x428.jpg)', 
+             'url(http://gourmetwithblakely.com/wp-content/uploads/2018/02/spicy-baked-chicken-wings-1024x512.jpeg)',
+]
+
+dessertsImages = [
+  'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7NWvPloKZ0kMTzkaUlZA2FCq2QUDVd3heY4HXoGc7_JIX6iSgXQ)',
+            'url("https://images-gmi-pmc.edge-generalmills.com/817d708a-33e6-46f7-b985-0360b6c55cf4.jpg")',
+            'url(http://www.italian-dessert-recipes.com/image-files/cannoli-recipes-w.png)',
+]
+
+entreesImages = [
+           'url(http://www.great-chicago-italian-recipes.com/images/pasta_recipes.jpg)',
+           'url(https://i0.wp.com/blog.nkataa.com/wp-content/uploads/2017/07/shutterstock_478193965.jpg?fit=720%2C480)',
+           'url(https://extremehotels.com/wp-content/uploads/2018/10/La-Bandera_003-1030x806.jpg)',
+]
+
+appetizersDivs = [
+  '<div class="item"><p>la garlic <span class="price">$5</span><br /><small>garlic bread with a special italian mozzarella cheese.With a pinch of pepper .</small></p></div>',
+
+'<div class="item"><p>leaf chicken <span class="price">$4.99</span><br /><small>lettuce topped with sweet chicken with special sauce.</small></p></div>',
+  
+'<div class="item"><p>buffalo wings <span class="price">$6.50</span><br /><small>buffalo wings with a mix of sweet sauce.</small></p></div>',
+
+	]
+
+dessertsDivs = [
+  '<div class="item"><p>pumpkin pie <span class="price">$4.99</span><br /><small>homade pumpkin pie with freshly picked pumkins.</small></p></div>',
+
+'<div class="item"><p>brownie whip <span class="price">$2.99</span><br /><small>brownie with chocalte chips and vanilla bean whip.</small></p></div>',
+  
+'<div class="item"><p>cannoli <span class="price">$3.50</span><br /><small>our popular vanilla,strawberry,chocalte and other flavored cannoli.</small></p></div>',
+
+	]
+
+entreesDivs = [
+  '<div class="item"><p>la pasta <span class="price">$7.69</span><br /><small>fresh pasta with italian recipies.secret salsa.</small></p></div>',
+
+'<div class="item"><p>tostones sandwich <span class="price">$2.99</span><br /><small>fried and flat platanos with either beef or pollo with mayo and your choice toppings.</small></p></div>',
+  
+'<div class="item"><p>domincan plate <span class="price">9.50</span><br /><small>the delicious mix of rice and bean with salami avacado , and tostones.</small></p></div>',
+
+	]
+
+
+  function appetizers() {
+    
+    	food= document.getElementById("food")
+    	food.innerHTML = ''
+	food.innerHTML +=appetizersDivs[0]
+    	food.innerHTML += appetizersDivs[1]
+    food.innerHTML += appetizersDivs[2]
+    //alert("heres our specials")
+     items = document.getElementsByClassName("item")
+      for (i=0; i<3; i=i+1) {
+		    items[i].style.background = appetizersImages[i]
+		    items[i].style.backgroundSize = '100% 100%'
+      }  
+   }
+   
+  function desserts() {
+    food = document.getElementById("food")
+  	food.innerHTML = ''
+	food.innerHTML += dessertsDivs[0]
+    food.innerHTML += dessertsDivs[1]
+    food.innerHTML += dessertsDivs[2]
+
+    //alert("grand opening")
+    items = document.getElementsByClassName("item")
+    for (i=0; i<3; i=i+1) {
+		  items[i].style.background = dessertsImages[i]
+		  items[i].style.backgroundSize = '100% 100%'
+    }      
+  }
+  
+  function entrees() {
+    
+    food = document.getElementById("food")
+    	food.innerHTML = ''
+	food.innerHTML += entreesDivs[0]
+    	food.innerHTML += entreesDivs[1]
+    food.innerHTML += entreesDivs[2]
+    //alert("yummy desserts")
+    items = document.getElementsByClassName("item")
+    for (i=0; i<3; i=i+1) {
+		  items[i].style.background = entreesImages[i]
+		  items[i].style.backgroundSize = '100% 100%'
+    }  
+  }
+  
+
+
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+
+</body>
